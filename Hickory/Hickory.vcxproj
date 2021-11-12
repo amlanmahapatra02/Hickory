@@ -11,12 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Hickory\Log.h" />
     <ClInclude Include="src\Hickory.h" />
     <ClInclude Include="src\Hickory\Application.h" />
     <ClInclude Include="src\Hickory\Core.h" />
     <ClInclude Include="src\Hickory\EntryPoint.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Hickory\Log.cpp" />
     <ClCompile Include="src\Hickory\Application.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -68,6 +70,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>HK_PLATFORM_WINDOWS;HK_BUILD_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Hickory\vendor\spdlog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -82,6 +85,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>HK_PLATFORM_WINDOWS;HK_BUILD_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Hickory\vendor\spdlog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
