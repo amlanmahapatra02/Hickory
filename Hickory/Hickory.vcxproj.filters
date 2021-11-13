@@ -4,6 +4,9 @@
     <Filter Include="Hickory">
       <UniqueIdentifier>{7E6B4AA6-EA4A-C941-F362-54185FC12FA3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Hickory\Events">
+      <UniqueIdentifier>{A27DE006-8E4B-D40C-77DF-4433634CB071}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Hickory.h" />
@@ -16,13 +19,22 @@
     <ClInclude Include="src\Hickory\EntryPoint.h">
       <Filter>Hickory</Filter>
     </ClInclude>
+    <ClInclude Include="src\Hickory\Events\ApplicationEvent.h">
+      <Filter>Hickory\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hickory\Events\Event.h">
+      <Filter>Hickory\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hickory\Events\KeyEvent.h">
+      <Filter>Hickory\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hickory\Events\MouseEvent.h">
+      <Filter>Hickory\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Hickory\Log.h">
       <Filter>Hickory</Filter>
     </ClInclude>
-    <ClInclude Include="src\Hickory\Events\Event.h" />
-    <ClInclude Include="src\Hickory\Events\ApplicationEvent.h" />
-    <ClInclude Include="src\Hickory\Events\KeyEvent.h" />
-    <ClInclude Include="src\Hickory\Events\MouseEvent.h" />
+    <ClInclude Include="src\hkpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hickory\Application.cpp">
@@ -31,5 +43,6 @@
     <ClCompile Include="src\Hickory\Log.cpp">
       <Filter>Hickory</Filter>
     </ClCompile>
+    <ClCompile Include="src\hkpch.cpp" />
   </ItemGroup>
 </Project>

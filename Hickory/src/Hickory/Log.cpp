@@ -1,3 +1,5 @@
+#include "hkpch.h"
+
 #include "Log.h"
 
 namespace Hickory

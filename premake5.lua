@@ -18,6 +18,9 @@ project "Hickory"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "hkpch.h"
+	pchsource "Hickory/src/hkpch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",

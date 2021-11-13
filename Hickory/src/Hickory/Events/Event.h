@@ -2,8 +2,7 @@
 
 #include "Hickory/Core.h"
 
-#include <string.h>
-#include <functional>
+
 
 namespace Hickory
 {
