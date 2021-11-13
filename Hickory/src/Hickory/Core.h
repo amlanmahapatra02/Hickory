@@ -11,3 +11,5 @@
 	#error Only Supported in Windows only 
 
 #endif // HK_PLATFORM_WINDOWS
+
+#define BIT(x) (1 << x)

@@ -19,6 +19,10 @@
     <ClInclude Include="src\Hickory\Log.h">
       <Filter>Hickory</Filter>
     </ClInclude>
+    <ClInclude Include="src\Hickory\Events\Event.h" />
+    <ClInclude Include="src\Hickory\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Hickory\Events\KeyEvent.h" />
+    <ClInclude Include="src\Hickory\Events\MouseEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hickory\Application.cpp">
