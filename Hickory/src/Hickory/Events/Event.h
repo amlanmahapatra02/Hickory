@@ -1,5 +1,5 @@
 #pragma once
-
+#include "hkpch.h"
 #include "Hickory/Core.h"
 
 
@@ -19,11 +19,11 @@ namespace Hickory
 	enum  EventCategory
 	{
 		None = 0,
-		EventCategoryApplication	=BIT(1),
-		EventCategoryInput			=BIT(2),
-		EventCategoryKeyboard		=BIT(3),
-		EventCategoryMouse			=BIT(4),
-		EventCategoryMouseButton	=BIT(5)
+		EventCategoryApplication	=BIT(0),
+		EventCategoryInput			=BIT(1),
+		EventCategoryKeyboard		=BIT(2),
+		EventCategoryMouse			=BIT(3),
+		EventCategoryMouseButton	=BIT(4)
 	};
 
 	#define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::##type; } \
@@ -36,6 +36,8 @@ namespace Hickory
 
 	class HICKORY_API Event
 	{
+		friend class EventDispatcher;
+
 		protected:
 			bool m_Handled = false;
 
@@ -45,8 +47,6 @@ namespace Hickory
 			virtual int GetCategoryFlags() const = 0;
 			virtual std::string ToString() const { return GetName(); }
 			inline bool IsInCategory(EventCategory category) { return GetCategoryFlags() & category; }
-
-		friend class EventDispatcher;
 
 	};
 

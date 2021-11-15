@@ -10,6 +10,7 @@ workspace "Hickory"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+
 project "Hickory"
 	location "Hickory"
 	kind "SharedLib"
