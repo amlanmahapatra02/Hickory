@@ -10,6 +10,11 @@ workspace "Hickory"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "Hickory/vendor/GLFW/include"
+
+include "Hickory/vendor/GLFW"
+
 
 project "Hickory"
 	location "Hickory"
@@ -31,7 +36,15 @@ project "Hickory"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"Dwmapi.lib",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -52,14 +65,17 @@ project "Hickory"
 
 	filter "configurations:Debug"
 		defines "HK_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "HK_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "HK_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 
@@ -100,12 +116,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "HK_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "HK_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "HK_DIST"
+		buildoptions "/MD"
 		optimize "On"

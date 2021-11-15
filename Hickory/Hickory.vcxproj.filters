@@ -37,6 +37,12 @@
     <ClInclude Include="src\Hickory\Events\MouseEvent.h">
       <Filter>Hickory\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Hickory\Layer.h">
+      <Filter>Hickory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hickory\LayerStack.h">
+      <Filter>Hickory</Filter>
+    </ClInclude>
     <ClInclude Include="src\Hickory\Log.h">
       <Filter>Hickory</Filter>
     </ClInclude>
@@ -50,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hickory\Application.cpp">
+      <Filter>Hickory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hickory\Layer.cpp">
+      <Filter>Hickory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hickory\LayerStack.cpp">
       <Filter>Hickory</Filter>
     </ClCompile>
     <ClCompile Include="src\Hickory\Log.cpp">
