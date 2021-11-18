@@ -3,7 +3,7 @@
 #include "Application.h"
 #include "Hickory/Events/ApplicationEvent.h"
 
-#include <GLFW/glfw3.h>
+#include <glad/glad.h>
 
 namespace Hickory
 {
@@ -14,6 +14,10 @@ namespace Hickory
 	{
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FUNCTION(Application::OnEvent));
+
+		unsigned int id;
+		glGenBuffers(1, &id);
+
 	}
 
 	Application::~Application()
@@ -56,7 +60,7 @@ namespace Hickory
 	{
 		while (m_Running)
 		{
-			glClearColor(1, 0, 0, 1);
+			glClearColor(1, 0, 1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 			
 			for (auto layer : m_LayerStack)

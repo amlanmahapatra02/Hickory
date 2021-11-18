@@ -12,8 +12,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Hickory/vendor/GLFW/include"
+IncludeDir["Glad"] = "Hickory/vendor/Glad/include"
 
 include "Hickory/vendor/GLFW"
+include "Hickory/vendor/Glad"
 
 
 project "Hickory"
@@ -37,12 +39,14 @@ project "Hickory"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"Dwmapi.lib",
 		"opengl32.lib"
 	}
@@ -55,7 +59,8 @@ project "Hickory"
 		defines
 		{
 			"HK_PLATFORM_WINDOWS",
-			"HK_BUILD_DLL"
+			"HK_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands

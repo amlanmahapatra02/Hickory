@@ -3,8 +3,10 @@
 #include "Hickory/Window.h"
 #include <GLFW/glfw3.h>
 
+
 namespace Hickory
 {
+
 	class WindowsWindow : public Window
 	{
 		private:

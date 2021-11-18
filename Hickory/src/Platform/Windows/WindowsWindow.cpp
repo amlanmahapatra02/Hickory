@@ -4,6 +4,8 @@
 #include "Hickory/Events/KeyEvent.h"
 #include "Hickory/Events/MouseEvent.h"
 
+#include <glad/glad.h>
+
 namespace Hickory
 {
 	static bool s_GLFWInitialized = false;
@@ -40,7 +42,7 @@ namespace Hickory
 		{
 			// TODO: glfwTerminate on system shutdown
 			int success = glfwInit();
-			HK_CORE_ASSERT(success, "Could not intialize GLFW!");
+			HK_CORE_ASSERT(success, "Could not initialize GLFW!");
 			glfwSetErrorCallback(GLFWErrorCallback);
 
 			s_GLFWInitialized = true;
@@ -48,6 +50,10 @@ namespace Hickory
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
+
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		HK_CORE_ASSERT("Failed to initialize Glad! ", status);
+
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
