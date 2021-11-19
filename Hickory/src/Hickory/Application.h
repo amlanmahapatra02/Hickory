@@ -13,9 +13,13 @@ namespace Hickory
 	{
 		private:
 			std::unique_ptr<Window> m_Window;
-			bool m_Running = true;
 			bool OnWindowClose(WindowCloseEvent& eve);
+
 			LayerStack m_LayerStack;
+			bool m_Running = true;
+			
+			static Application* s_Instances;
+
 
 		public:
 			Application();
@@ -27,6 +31,9 @@ namespace Hickory
 
 			void PushLayer(Layer* layer);
 			void PushOverlay(Layer* layer);
+
+			inline Window& GetWindow() { return *m_Window; }
+			inline static Application& Get() { return *s_Instances; }
 	};
 
 	Application* CreateApplication();

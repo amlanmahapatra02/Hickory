@@ -2,18 +2,22 @@
 
 #include "Application.h"
 #include "Hickory/Events/ApplicationEvent.h"
+#include "imgui/imGuiLayer.h"
 
 #include <glad/glad.h>
 
 namespace Hickory
 {
-	#define BIND_EVENT_FUNCTION(x) std::bind(&x, this, std::placeholders::_1)
 
+	Application* Application::s_Instances = nullptr;
 
 	Application::Application()
 	{
+		HK_CORE_ASSERT("Application already exists ", !s_Instances);
+		s_Instances = this;
+
 		m_Window = std::unique_ptr<Window>(Window::Create());
-		m_Window->SetEventCallback(BIND_EVENT_FUNCTION(Application::OnEvent));
+		m_Window->SetEventCallback(HK_BIND_EVENT_FUNC(Application::OnEvent));
 
 		unsigned int id;
 		glGenBuffers(1, &id);
@@ -28,11 +32,13 @@ namespace Hickory
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* layer)
 	{
 		m_LayerStack.PushOverlay(layer);
+		layer->OnAttach();
 	}
 
 	void Application::OnEvent(Event& eve)
@@ -40,7 +46,7 @@ namespace Hickory
 		EventDispatcher dispatcher(eve);
 
 		//check
-		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FUNCTION(Application::OnWindowClose));
+		dispatcher.Dispatch<WindowCloseEvent>(HK_BIND_EVENT_FUNC(Application::OnWindowClose));
 
 		HK_CORE_TRACE("{0}", eve);
 
@@ -60,7 +66,7 @@ namespace Hickory
 	{
 		while (m_Running)
 		{
-			glClearColor(1, 0, 1, 1);
+			glClearColor(1, 0, 0, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 			
 			for (auto layer : m_LayerStack)
@@ -77,6 +83,4 @@ namespace Hickory
 		m_Running = false;
 		return m_Running;
 	}
-
-
 }

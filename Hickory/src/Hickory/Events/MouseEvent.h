@@ -37,7 +37,7 @@ namespace Hickory
 
 		public:
 			MouseScrolledEvent(float xoffset, float yoffset)
-				:m_XOffset(xoffset), m_YOffset(m_YOffset)
+				:m_XOffset(xoffset), m_YOffset(yoffset)
 			{
 			}
 

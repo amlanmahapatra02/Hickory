@@ -108,6 +108,14 @@ namespace Hickory
 				}
 		});
 
+		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int keycode)
+		{
+				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+				KeyTypedEvent event(keycode);
+				data.EventCallback(event);
+
+		});
+
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods)
 		{
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
@@ -146,6 +154,7 @@ namespace Hickory
 				MouseMovedEvent event((float)xpos, (float)ypos);
 				data.EventCallback(event);
 		});
+
 	}
 
 	void WindowsWindow::Shutdown()
