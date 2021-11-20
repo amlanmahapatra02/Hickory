@@ -3,6 +3,7 @@
 #include "Application.h"
 #include "Hickory/Events/ApplicationEvent.h"
 #include "imgui/imGuiLayer.h"
+#include "Input.h"
 
 #include <glad/glad.h>
 
@@ -73,6 +74,9 @@ namespace Hickory
 			{
 				layer->OnUpdate();
 			}
+
+			auto [x, y] = Input::GetMousePos();
+			HK_CORE_TRACE("{0} , {1}", x, y);
 
 			m_Window->OnUpdate();
 		}

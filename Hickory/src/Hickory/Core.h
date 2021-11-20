@@ -12,6 +12,11 @@
 
 #endif // HK_PLATFORM_WINDOWS
 
+#ifdef HK_DEBUG
+	#define HK_ENABLE_ASSERTS
+#endif // HK_DEBUG
+
+
 #ifdef HK_ENABLE_ASSERTS
 #define HK_ASSERT(x, ...) { if(!(x)) { HK_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 #define HK_CORE_ASSERT(x, ...) { if(!(x)) { HK_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }

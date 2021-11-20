@@ -55,6 +55,9 @@
     <ClInclude Include="src\Hickory\Window.h">
       <Filter>Hickory</Filter>
     </ClInclude>
+    <ClInclude Include="src\Hickory\imgui\ImGuiLayer.h">
+      <Filter>Hickory\imgui</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\imGuiLayerRenderer.h">
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
@@ -62,7 +65,8 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\hkpch.h" />
-    <ClInclude Include="src\Hickory\imgui\ImGuiLayer.h" />
+    <ClInclude Include="src\Hickory\Input.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hickory\Application.cpp">
@@ -77,6 +81,9 @@
     <ClCompile Include="src\Hickory\Log.cpp">
       <Filter>Hickory</Filter>
     </ClCompile>
+    <ClCompile Include="src\Hickory\imgui\ImGuiLayer.cpp">
+      <Filter>Hickory\imgui</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\imGuiLayerRenderer.cpp">
       <Filter>Platform\OpenGL</Filter>
     </ClCompile>
@@ -84,6 +91,6 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\hkpch.cpp" />
-    <ClCompile Include="src\Hickory\imgui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
   </ItemGroup>
 </Project>

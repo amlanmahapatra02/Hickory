@@ -83,8 +83,7 @@
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -109,8 +108,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -136,8 +134,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -160,22 +157,25 @@
     <ClInclude Include="src\Hickory\Events\Event.h" />
     <ClInclude Include="src\Hickory\Events\KeyEvent.h" />
     <ClInclude Include="src\Hickory\Events\MouseEvent.h" />
-    <ClInclude Include="src\Hickory\imgui\ImGuiLayer.h" />
+    <ClInclude Include="src\Hickory\Input.h" />
     <ClInclude Include="src\Hickory\Layer.h" />
     <ClInclude Include="src\Hickory\LayerStack.h" />
     <ClInclude Include="src\Hickory\Log.h" />
     <ClInclude Include="src\Hickory\Window.h" />
+    <ClInclude Include="src\Hickory\imgui\ImGuiLayer.h" />
     <ClInclude Include="src\Platform\OpenGL\imGuiLayerRenderer.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\hkpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hickory\Application.cpp" />
-    <ClCompile Include="src\Hickory\imgui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Hickory\Layer.cpp" />
     <ClCompile Include="src\Hickory\LayerStack.cpp" />
     <ClCompile Include="src\Hickory\Log.cpp" />
+    <ClCompile Include="src\Hickory\imgui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\imGuiLayerRenderer.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\hkpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
