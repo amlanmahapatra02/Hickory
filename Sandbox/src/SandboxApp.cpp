@@ -1,4 +1,5 @@
 #include <Hickory.h>
+#include "glm/glm.hpp"
 
 class ExampleLayer : public Hickory::Layer
 {
@@ -10,12 +11,20 @@ class ExampleLayer : public Hickory::Layer
 
 		void OnUpdate() override
 		{
-			HK_INFO("ExampleLayer :: Update");
+			
 		}
 
 		void OnEvent(Hickory::Event& event) override
 		{
 			HK_TRACE("{0}", event);
+			if (event.GetEventType() == Hickory::EventType::KeyPressed)
+			{
+				Hickory::KeyPressedEvent& e = (Hickory::KeyPressedEvent&)event;
+				if (e.GetKeyCode() == HK_KEY_TAB)
+				{
+					HK_TRACE("Tab Key was Pressed! ");
+				}
+			}
 		}
 };
 

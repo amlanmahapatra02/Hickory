@@ -14,6 +14,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Hickory/vendor/GLFW/include"
 IncludeDir["Glad"] = "Hickory/vendor/Glad/include"
 IncludeDir["ImGui"] = "Hickory/vendor/imgui"
+IncludeDir["glm"] = "Hickory/vendor/glm"
 
 include "Hickory/vendor/GLFW"
 include "Hickory/vendor/Glad"
@@ -35,7 +36,9 @@ project "Hickory"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	includedirs
@@ -44,7 +47,8 @@ project "Hickory"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -106,7 +110,8 @@ project "Sandbox"
 	includedirs
 	{
 		"Hickory/vendor/spdlog/include",
-		"Hickory/src"
+		"Hickory/src",
+		"%{IncludeDir.glm}"
 	}
 
 	links
