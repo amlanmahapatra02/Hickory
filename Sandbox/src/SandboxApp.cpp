@@ -14,6 +14,7 @@ class ExampleLayer : public Hickory::Layer
 			
 		}
 
+
 		void OnEvent(Hickory::Event& event) override
 		{
 			HK_TRACE("{0}", event);
@@ -33,8 +34,8 @@ class Sandbox : public Hickory::Application
 	public:
 		Sandbox()
 		{
-			//PushLayer(new ExampleLayer());
-			PushOverlay(new Hickory::ImGuiLayer());
+			PushLayer(new ExampleLayer());
+			
 		}
 
 		~Sandbox()

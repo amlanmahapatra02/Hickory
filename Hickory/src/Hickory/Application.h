@@ -5,6 +5,7 @@
 #include "Hickory/Events/Event.h"
 #include "Hickory/Events/ApplicationEvent.h"
 #include "LayerStack.h"
+#include "Hickory/imgui/ImGuiLayer.h"
 
 
 namespace Hickory
@@ -13,6 +14,8 @@ namespace Hickory
 	{
 		private:
 			std::unique_ptr<Window> m_Window;
+			ImGuiLayer* m_ImGuiLayer;
+
 			bool OnWindowClose(WindowCloseEvent& eve);
 
 			LayerStack m_LayerStack;
