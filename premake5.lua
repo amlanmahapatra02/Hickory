@@ -112,6 +112,7 @@ project "Sandbox"
 	{
 		"Hickory/vendor/spdlog/include",
 		"Hickory/src",
+		"Hickory/vendor",
 		"%{IncludeDir.glm}"
 	}
 

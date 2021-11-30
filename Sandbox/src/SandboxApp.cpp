@@ -1,5 +1,6 @@
 #include <Hickory.h>
-#include "glm/glm.hpp"
+
+#include "imgui/imgui.h"
 
 class ExampleLayer : public Hickory::Layer
 {
@@ -14,6 +15,12 @@ class ExampleLayer : public Hickory::Layer
 			
 		}
 
+		virtual void OnImGuiRender() override
+		{
+			ImGui::Begin("Test");
+			ImGui::Text("Hello World");
+			ImGui::End();
+		}
 
 		void OnEvent(Hickory::Event& event) override
 		{
