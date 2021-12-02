@@ -7,6 +7,8 @@
 #include "LayerStack.h"
 #include "Hickory/imgui/ImGuiLayer.h"
 
+#include "Hickory/Renderer/Shader.h"
+
 
 namespace Hickory
 {
@@ -37,6 +39,9 @@ namespace Hickory
 
 			inline Window& GetWindow() { return *m_Window; }
 			inline static Application& Get() { return *s_Instances; }
+
+			unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+			std::unique_ptr<Shader> m_Shader;
 	};
 
 	Application* CreateApplication();

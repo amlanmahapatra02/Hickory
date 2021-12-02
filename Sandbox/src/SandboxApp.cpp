@@ -24,7 +24,6 @@ class ExampleLayer : public Hickory::Layer
 
 		void OnEvent(Hickory::Event& event) override
 		{
-			HK_TRACE("{0}", event);
 			if (event.GetEventType() == Hickory::EventType::KeyPressed)
 			{
 				Hickory::KeyPressedEvent& e = (Hickory::KeyPressedEvent&)event;

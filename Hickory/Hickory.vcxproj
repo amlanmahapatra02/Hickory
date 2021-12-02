@@ -155,6 +155,7 @@
     <ClInclude Include="src\Hickory\Log.h" />
     <ClInclude Include="src\Hickory\MouseButtonCodes.h" />
     <ClInclude Include="src\Hickory\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Hickory\Renderer\Shader.h" />
     <ClInclude Include="src\Hickory\Window.h" />
     <ClInclude Include="src\Hickory\imgui\ImGuiLayer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
@@ -584,6 +585,7 @@
     <ClCompile Include="src\Hickory\Log.cpp" />
     <ClCompile Include="src\Hickory\imgui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Hickory\imgui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Hickory\Renderer\Shader.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
