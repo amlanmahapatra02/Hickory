@@ -8,6 +8,7 @@
 #include "Hickory/imgui/ImGuiLayer.h"
 
 #include "Hickory/Renderer/Shader.h"
+#include "Hickory/Renderer/Buffer.h"
 
 
 namespace Hickory
@@ -40,8 +41,10 @@ namespace Hickory
 			inline Window& GetWindow() { return *m_Window; }
 			inline static Application& Get() { return *s_Instances; }
 
-			unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+			unsigned int m_VertexArray;
 			std::unique_ptr<Shader> m_Shader;
+			std::unique_ptr<VertexBuffer> m_VertexBuffer;
+			std::unique_ptr<IndexBuffer> m_IndexBuffer;
 	};
 
 	Application* CreateApplication();
