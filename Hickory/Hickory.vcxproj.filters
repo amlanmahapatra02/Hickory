@@ -90,7 +90,16 @@
     <ClInclude Include="src\Hickory\MouseButtonCodes.h">
       <Filter>src\Hickory</Filter>
     </ClInclude>
+    <ClInclude Include="src\Hickory\Renderer\Buffer.h">
+      <Filter>src\Hickory\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Hickory\Renderer\GraphicsContext.h">
+      <Filter>src\Hickory\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hickory\Renderer\Renderer.h">
+      <Filter>src\Hickory\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hickory\Renderer\Shader.h">
       <Filter>src\Hickory\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Hickory\Window.h">
@@ -98,6 +107,9 @@
     </ClInclude>
     <ClInclude Include="src\Hickory\imgui\ImGuiLayer.h">
       <Filter>src\Hickory\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
+      <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
       <Filter>src\Platform\OpenGL</Filter>
@@ -1356,10 +1368,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Hickory\Renderer\Shader.h" />
-    <ClInclude Include="src\Hickory\Renderer\Buffer.h" />
-    <ClInclude Include="src\Hickory\Renderer\Renderer.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hickory\Application.cpp">
@@ -1374,11 +1382,23 @@
     <ClCompile Include="src\Hickory\Log.cpp">
       <Filter>src\Hickory</Filter>
     </ClCompile>
+    <ClCompile Include="src\Hickory\Renderer\Buffer.cpp">
+      <Filter>src\Hickory\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hickory\Renderer\Renderer.cpp">
+      <Filter>src\Hickory\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hickory\Renderer\Shader.cpp">
+      <Filter>src\Hickory\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Hickory\imgui\ImGuiBuild.cpp">
       <Filter>src\Hickory\imgui</Filter>
     </ClCompile>
     <ClCompile Include="src\Hickory\imgui\ImGuiLayer.cpp">
       <Filter>src\Hickory\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
       <Filter>src\Platform\OpenGL</Filter>
@@ -1392,9 +1412,5 @@
     <ClCompile Include="src\hkpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Hickory\Renderer\Shader.cpp" />
-    <ClCompile Include="src\Hickory\Renderer\Buffer.cpp" />
-    <ClCompile Include="src\Hickory\Renderer\Renderer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
   </ItemGroup>
 </Project>

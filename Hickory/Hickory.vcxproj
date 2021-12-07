@@ -586,11 +586,11 @@
     <ClCompile Include="src\Hickory\Layer.cpp" />
     <ClCompile Include="src\Hickory\LayerStack.cpp" />
     <ClCompile Include="src\Hickory\Log.cpp" />
-    <ClCompile Include="src\Hickory\imgui\ImGuiBuild.cpp" />
-    <ClCompile Include="src\Hickory\imgui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Hickory\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Hickory\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Hickory\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Hickory\imgui\ImGuiBuild.cpp" />
+    <ClCompile Include="src\Hickory\imgui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
