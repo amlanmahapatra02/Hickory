@@ -7,15 +7,11 @@
 #include "LayerStack.h"
 #include "Hickory/imgui/ImGuiLayer.h"
 
-#include "Hickory/Renderer/Shader.h"
-#include "Hickory/Renderer/Buffer.h"
-#include "Hickory/Renderer/VertexArray.h"
-#include "Hickory/Renderer/Camera.h"
 
 
 namespace Hickory
 {
-	class HICKORY_API Application
+	class  Application
 	{
 		private:
 			std::unique_ptr<Window> m_Window;
@@ -28,14 +24,7 @@ namespace Hickory
 			
 			static Application* s_Instances;
 
-			std::shared_ptr<Shader> m_Shader;
-			std::shared_ptr<VertexArray> m_VertexArray;
-			std::shared_ptr<VertexBuffer> m_VertexBuffer;
-			std::shared_ptr<IndexBuffer> m_IndexBuffer;
-
-			std::shared_ptr<Shader> m_BlueShader;
-			std::shared_ptr<VertexArray> m_SquareVA;
-			Camera m_Camera;
+			
 
 
 		public:
