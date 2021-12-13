@@ -10,6 +10,7 @@
 #include "Hickory/Renderer/Shader.h"
 #include "Hickory/Renderer/Buffer.h"
 #include "Hickory/Renderer/VertexArray.h"
+#include "Hickory/Renderer/Camera.h"
 
 
 namespace Hickory
@@ -34,6 +35,7 @@ namespace Hickory
 
 			std::shared_ptr<Shader> m_BlueShader;
 			std::shared_ptr<VertexArray> m_SquareVA;
+			Camera m_Camera;
 
 
 		public:
