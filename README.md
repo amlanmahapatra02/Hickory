@@ -1,2 +1,2 @@
 # Hickory
-Hickory Engine
+Hickory Engine 2D (work in Progess)
