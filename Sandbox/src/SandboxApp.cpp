@@ -125,21 +125,21 @@ class ExampleLayer : public Hickory::Layer
 			m_BlueShader.reset(new Hickory::Shader(blueShaderVertexSrc, blueShaderFragmentSrc));
 		}
 
-		void OnUpdate() override
+		void OnUpdate(Hickory::Timestep DeltaTime) override
 		{
 			//Camera Controls
 
 			if (Hickory::Input::isKeyPressed(HK_KEY_RIGHT) || Hickory::Input::isKeyPressed(HK_KEY_D))
-				m_CameraPosition.x += m_CameraMovementSpeed;
+				m_CameraPosition.x += m_CameraMovementSpeed * DeltaTime;
 
 			else if (Hickory::Input::isKeyPressed(HK_KEY_LEFT) || Hickory::Input::isKeyPressed(HK_KEY_A))
-					m_CameraPosition.x -= m_CameraMovementSpeed;
+					m_CameraPosition.x -= m_CameraMovementSpeed * DeltaTime;
 
 			if (Hickory::Input::isKeyPressed(HK_KEY_UP) || Hickory::Input::isKeyPressed(HK_KEY_W))
-				m_CameraPosition.y += m_CameraMovementSpeed;
+				m_CameraPosition.y += m_CameraMovementSpeed * DeltaTime;
 
 			else if (Hickory::Input::isKeyPressed(HK_KEY_DOWN) || Hickory::Input::isKeyPressed(HK_KEY_S))
-					m_CameraPosition.y -= m_CameraMovementSpeed;
+					m_CameraPosition.y -= m_CameraMovementSpeed * DeltaTime;
 
 
 			Hickory::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
@@ -177,9 +177,9 @@ class ExampleLayer : public Hickory::Layer
 
 			Hickory::Camera m_Camera;
 			glm::vec3 m_CameraPosition;
-			float m_CameraMovementSpeed = 0.1f;
+			float m_CameraMovementSpeed = 5.0f;
 			float m_CameraRotation = 0.0f;
-			float m_RotationSpeed = 2.0f;
+			float m_RotationSpeed = 90.0f;
 
 };
 

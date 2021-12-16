@@ -5,6 +5,9 @@
 #include "Hickory/Events/Event.h"
 #include "Hickory/Events/ApplicationEvent.h"
 #include "LayerStack.h"
+
+#include "Hickory/Core/Timestep.h"
+
 #include "Hickory/imgui/ImGuiLayer.h"
 
 
@@ -17,14 +20,15 @@ namespace Hickory
 			std::unique_ptr<Window> m_Window;
 			ImGuiLayer* m_ImGuiLayer;
 
-			bool OnWindowClose(WindowCloseEvent& eve);
-
 			LayerStack m_LayerStack;
 			bool m_Running = true;
 			
 			static Application* s_Instances;
 
-			
+			float m_LastFrameTime = 0.0f;
+
+		private:
+			bool OnWindowClose(WindowCloseEvent& eve);
 
 
 		public:

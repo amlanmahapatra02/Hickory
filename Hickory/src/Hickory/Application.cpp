@@ -5,6 +5,8 @@
 #include "imgui/imGuiLayer.h"
 #include "Input.h"
 
+#include <GLFW/glfw3.h>
+
 #include "Hickory/Renderer/Renderer.h"
 
 namespace Hickory
@@ -22,6 +24,7 @@ namespace Hickory
 
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(HK_BIND_EVENT_FUNC(Application::OnEvent));
+		m_Window->SetVSync(false);
 
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
@@ -72,10 +75,13 @@ namespace Hickory
 	{
 		while (m_Running)
 		{
+			float time = (float)glfwGetTime(); //Tempo
+			Timestep DeltaTime = time - m_LastFrameTime;
+			m_LastFrameTime = time;
 			
 			for (Layer* layer : m_LayerStack)
 			{
-				layer->OnUpdate();
+				layer->OnUpdate(DeltaTime);
 			}
 			
 			m_ImGuiLayer->Begin();

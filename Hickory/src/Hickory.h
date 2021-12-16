@@ -6,6 +6,8 @@
 #include "Hickory/Log.h"
 #include "Hickory/Layer.h"
 
+#include "Hickory/Core/Timestep.h"
+
 #include "Hickory/Input.h"
 #include "Hickory/KeyCodes.h"
 #include "Hickory/MouseButtonCodes.h"

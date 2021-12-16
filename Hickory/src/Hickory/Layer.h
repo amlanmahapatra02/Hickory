@@ -2,6 +2,7 @@
 
 #include "Hickory/Core.h"
 #include "Hickory/Events/ApplicationEvent.h"
+#include "Hickory/Core/Timestep.h"
 
 namespace Hickory
 {
@@ -16,7 +17,7 @@ namespace Hickory
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep DeltaTime) {}
 		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& event) {}
 
