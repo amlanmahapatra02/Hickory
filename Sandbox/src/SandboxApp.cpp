@@ -2,6 +2,8 @@
 
 #include "imgui/imgui.h"
 
+#include <glm/gtc/matrix_transform.hpp>
+
 class ExampleLayer : public Hickory::Layer
 {
 	public:
@@ -38,10 +40,10 @@ class ExampleLayer : public Hickory::Layer
 			m_SquareVA.reset(Hickory::VertexArray::Create());
 
 			float squareVertices[3 * 4] = {
-				-0.75f, -0.75f, 0.0f,
-				 0.75f, -0.75f, 0.0f,
-				 0.75f,  0.75f, 0.0f,
-				-0.75f,  0.75f, 0.0f
+				-0.5f, -0.5f, 0.0f,
+				 0.5f, -0.5f, 0.0f,
+				 0.5f,  0.5f, 0.0f,
+				-0.5f,  0.5f, 0.0f
 			};
 
 			std::shared_ptr<Hickory::VertexBuffer> squareVB;
@@ -64,6 +66,7 @@ class ExampleLayer : public Hickory::Layer
 			layout(location = 1) in vec4 a_Color;
 
 			uniform mat4 u_ViewProjection;
+			uniform mat4 u_Transform;
 
 			out vec3 v_Position;
 			out vec4 v_Color;
@@ -72,7 +75,7 @@ class ExampleLayer : public Hickory::Layer
 			{
 				v_Position = a_Position;
 				v_Color = a_Color;
-				gl_Position = u_ViewProjection * vec4(a_Position, 1.0);	
+				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);	
 			}
 		)";
 
@@ -101,13 +104,14 @@ class ExampleLayer : public Hickory::Layer
 			layout(location = 0) in vec3 a_Position;
 
 			uniform mat4 u_ViewProjection;
+			uniform mat4 u_Transform;
 
 			out vec3 v_Position;
 
 			void main()
 			{
 				v_Position = a_Position;
-				gl_Position = u_ViewProjection * vec4(a_Position, 1.0);	
+				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);	
 			}
 		)";
 
@@ -151,7 +155,20 @@ class ExampleLayer : public Hickory::Layer
 			Hickory::Renderer::BeginScene(m_Camera);
 
 
-			Hickory::Renderer::Submit(m_BlueShader, m_SquareVA);
+			
+
+			glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
+
+			for (int y = 0; y < 20; y++)
+			{
+				for (int x = 0; x < 20; x++)
+				{
+					glm::vec3 pos(x * 0.11f, y * 0.11f, 0.0f);
+					glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
+					Hickory::Renderer::Submit(m_BlueShader, m_SquareVA, transform);
+				}
+			}
+
 			Hickory::Renderer::Submit(m_Shader, m_VertexArray);
 
 			Hickory::Renderer::EndScene();
