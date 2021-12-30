@@ -1,8 +1,11 @@
 #include <Hickory.h>
 
+#include "Platform/OpenGL/OpenGLShader.h"
+
 #include "imgui/imgui.h"
 
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 class ExampleLayer : public Hickory::Layer
 {
@@ -87,7 +90,6 @@ class ExampleLayer : public Hickory::Layer
 			in vec3 v_Position;
 			in vec4 v_Color;
 
-
 			void main()
 			{
 				color = vec4(v_Position * 0.5 + 0.5, 1.0);
@@ -95,10 +97,10 @@ class ExampleLayer : public Hickory::Layer
 			}
 		)";
 
-			m_Shader.reset(new Hickory::Shader(vertexSrc, fragmentSrc));
+			m_Shader.reset(Hickory::Shader::Create(vertexSrc, fragmentSrc));
 
 
-			std::string blueShaderVertexSrc = R"(
+			std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
 			
 			layout(location = 0) in vec3 a_Position;
@@ -115,18 +117,22 @@ class ExampleLayer : public Hickory::Layer
 			}
 		)";
 
-			std::string blueShaderFragmentSrc = R"(
+			std::string flatColorShaderFragmentSrc = R"(
 			#version 330 core
 			
 			layout(location = 0) out vec4 color;
+
 			in vec3 v_Position;
+			
+			uniform vec3 u_Color;
+
 			void main()
 			{
-				color = vec4(0.2, 0.3, 0.8, 1.0);
+				color = vec4(u_Color, 1.0);
 			}
 		)";
 
-			m_BlueShader.reset(new Hickory::Shader(blueShaderVertexSrc, blueShaderFragmentSrc));
+			m_FlatColorShader.reset(Hickory::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
 		}
 
 		void OnUpdate(Hickory::Timestep DeltaTime) override
@@ -153,11 +159,12 @@ class ExampleLayer : public Hickory::Layer
 			m_Camera.SetRotation(m_CameraRotation);
 
 			Hickory::Renderer::BeginScene(m_Camera);
-
-
 			
 
 			glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
+
+			std::dynamic_pointer_cast<Hickory::OpenGLShader>(m_FlatColorShader)->Bind();
+			std::dynamic_pointer_cast<Hickory::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
 
 			for (int y = 0; y < 20; y++)
 			{
@@ -165,7 +172,7 @@ class ExampleLayer : public Hickory::Layer
 				{
 					glm::vec3 pos(x * 0.11f, y * 0.11f, 0.0f);
 					glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
-					Hickory::Renderer::Submit(m_BlueShader, m_SquareVA, transform);
+					Hickory::Renderer::Submit(m_FlatColorShader, m_SquareVA, transform);
 				}
 			}
 
@@ -176,6 +183,9 @@ class ExampleLayer : public Hickory::Layer
 
 		virtual void OnImGuiRender() override
 		{
+			ImGui::Begin("Setting");
+			ImGui::ColorEdit3("Square Color", glm::value_ptr(m_SquareColor));
+			ImGui::End();
 		}
 
 		void OnEvent(Hickory::Event& event) override
@@ -186,17 +196,18 @@ class ExampleLayer : public Hickory::Layer
 
 			std::shared_ptr<Hickory::Shader> m_Shader;
 			std::shared_ptr<Hickory::VertexArray> m_VertexArray;
-			std::shared_ptr<Hickory::VertexBuffer> m_VertexBuffer;
-			std::shared_ptr<Hickory::IndexBuffer> m_IndexBuffer;
 
-			std::shared_ptr<Hickory::Shader> m_BlueShader;
+			std::shared_ptr<Hickory::Shader> m_FlatColorShader;
 			std::shared_ptr<Hickory::VertexArray> m_SquareVA;
 
 			Hickory::Camera m_Camera;
 			glm::vec3 m_CameraPosition;
+
 			float m_CameraMovementSpeed = 5.0f;
 			float m_CameraRotation = 0.0f;
 			float m_RotationSpeed = 90.0f;
+
+			glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 
 };
 
