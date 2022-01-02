@@ -17,6 +17,7 @@
 //---Renderer---------
 #include "Hickory/Renderer/Renderer.h"
 #include "Hickory/Renderer/RenderCommand.h"
+#include "Hickory/Renderer/Texture.h"
 #include "Hickory/Renderer/Shader.h"
 #include "Hickory/Renderer/Buffer.h"
 #include "Hickory/Renderer/VertexArray.h"

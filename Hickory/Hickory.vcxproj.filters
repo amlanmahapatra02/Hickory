@@ -7,6 +7,9 @@
     <Filter Include="src\Hickory">
       <UniqueIdentifier>{956B84AF-0121-FDA4-8A15-F77BF6C9F3A8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Hickory\Core">
+      <UniqueIdentifier>{0D1509F9-F90D-284B-2240-0DD00E980757}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Hickory\Events">
       <UniqueIdentifier>{D99DC464-C581-85BA-2EE2-7F0D1AE56F3C}</UniqueIdentifier>
     </Filter>
@@ -46,6 +49,9 @@
     <Filter Include="vendor\glm\glm\gtx">
       <UniqueIdentifier>{B3A6A76B-9F8A-68C1-08EB-6214F4ED5243}</UniqueIdentifier>
     </Filter>
+    <Filter Include="vendor\stb_image">
+      <UniqueIdentifier>{0DA0BA59-F998-D9AB-22CB-BE300E23B9B7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Hickory.h">
@@ -56,6 +62,9 @@
     </ClInclude>
     <ClInclude Include="src\Hickory\Core.h">
       <Filter>src\Hickory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hickory\Core\Timestep.h">
+      <Filter>src\Hickory\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Hickory\EntryPoint.h">
       <Filter>src\Hickory</Filter>
@@ -93,13 +102,28 @@
     <ClInclude Include="src\Hickory\Renderer\Buffer.h">
       <Filter>src\Hickory\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Hickory\Renderer\Camera.h">
+      <Filter>src\Hickory\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Hickory\Renderer\GraphicsContext.h">
+      <Filter>src\Hickory\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hickory\Renderer\RenderCommand.h">
       <Filter>src\Hickory\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Hickory\Renderer\Renderer.h">
       <Filter>src\Hickory\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Hickory\Renderer\RendererAPI.h">
+      <Filter>src\Hickory\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Hickory\Renderer\Shader.h">
+      <Filter>src\Hickory\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hickory\Renderer\Texture.h">
+      <Filter>src\Hickory\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hickory\Renderer\VertexArray.h">
       <Filter>src\Hickory\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Hickory\Window.h">
@@ -112,6 +136,18 @@
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
@@ -1368,14 +1404,9 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Hickory\Renderer\VertexArray.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
-    <ClInclude Include="src\Hickory\Renderer\RendererAPI.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
-    <ClInclude Include="src\Hickory\Renderer\RenderCommand.h" />
-    <ClInclude Include="src\Hickory\Renderer\Camera.h" />
-    <ClInclude Include="src\Hickory\Core\Timestep.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
+    <ClInclude Include="vendor\stb_image\stb_image.h">
+      <Filter>vendor\stb_image</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hickory\Application.cpp">
@@ -1393,10 +1424,25 @@
     <ClCompile Include="src\Hickory\Renderer\Buffer.cpp">
       <Filter>src\Hickory\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Hickory\Renderer\Camera.cpp">
+      <Filter>src\Hickory\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hickory\Renderer\RenderCommand.cpp">
+      <Filter>src\Hickory\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Hickory\Renderer\Renderer.cpp">
       <Filter>src\Hickory\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Hickory\Renderer\RendererAPI.cpp">
+      <Filter>src\Hickory\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Hickory\Renderer\Shader.cpp">
+      <Filter>src\Hickory\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hickory\Renderer\Texture.cpp">
+      <Filter>src\Hickory\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hickory\Renderer\VertexArray.cpp">
       <Filter>src\Hickory\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Hickory\imgui\ImGuiBuild.cpp">
@@ -1411,6 +1457,18 @@
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
       <Filter>src\Platform\Windows</Filter>
     </ClCompile>
@@ -1420,12 +1478,8 @@
     <ClCompile Include="src\hkpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Hickory\Renderer\VertexArray.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
-    <ClCompile Include="src\Hickory\Renderer\RendererAPI.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
-    <ClCompile Include="src\Hickory\Renderer\RenderCommand.cpp" />
-    <ClCompile Include="src\Hickory\Renderer\Camera.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="vendor\stb_image\stb_image.cpp">
+      <Filter>vendor\stb_image</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
