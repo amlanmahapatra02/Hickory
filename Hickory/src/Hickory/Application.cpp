@@ -11,10 +11,7 @@
 
 namespace Hickory
 {
-
 	Application* Application::s_Instances = nullptr;
-
-
 
 	Application::Application()
 		
@@ -26,10 +23,10 @@ namespace Hickory
 		m_Window->SetEventCallback(HK_BIND_EVENT_FUNC(Application::OnEvent));
 		m_Window->SetVSync(false);
 
+		Renderer::Init();
+
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
-
-		
 
 	}
 

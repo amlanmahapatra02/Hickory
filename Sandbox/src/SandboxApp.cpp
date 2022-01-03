@@ -173,7 +173,8 @@ class ExampleLayer : public Hickory::Layer
 
 			m_TextureShader.reset(Hickory::Shader::Create(TextureShaderVertexSrc, TextureShaderFragmentSrc));
 
-			m_Texture = Hickory::Texture2D::Create("Assests/Textures/tanjiro.png");
+			m_Texture = Hickory::Texture2D::Create("Assests/Textures/Checkerboard.png");
+			m_LogoTexture = Hickory::Texture2D::Create("Assests/Textures/Twitch_Logo.png");
 
 			std::dynamic_pointer_cast<Hickory::OpenGLShader>(m_TextureShader)->Bind();
 			std::dynamic_pointer_cast<Hickory::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Color", 0);
@@ -226,6 +227,9 @@ class ExampleLayer : public Hickory::Layer
 			m_Texture->Bind();
 			Hickory::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
+			m_LogoTexture->Bind();
+			Hickory::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+
 			Hickory::Renderer::EndScene();
 		}
 
@@ -249,6 +253,7 @@ class ExampleLayer : public Hickory::Layer
 			Hickory::Ref<Hickory::Shader> m_TextureShader;
 			Hickory::Ref<Hickory::VertexArray> m_SquareVA;
 			Hickory::Ref<Hickory::Texture2D> m_Texture;
+			Hickory::Ref<Hickory::Texture2D> m_LogoTexture;
 
 			Hickory::Camera m_Camera;
 			glm::vec3 m_CameraPosition;
