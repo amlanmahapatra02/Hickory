@@ -98,7 +98,7 @@ class ExampleLayer : public Hickory::Layer
 			}
 		)";
 
-			m_Shader.reset(Hickory::Shader::Create(vertexSrc, fragmentSrc));
+			m_Shader = Hickory::Shader::Create("VertexPosColor",vertexSrc, fragmentSrc);
 
 
 			std::string flatColorShaderVertexSrc = R"(
@@ -133,51 +133,16 @@ class ExampleLayer : public Hickory::Layer
 			}
 		)";
 
-			m_FlatColorShader.reset(Hickory::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+			m_FlatColorShader = Hickory::Shader::Create("FlatColor",flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
 
-
-
-			std::string TextureShaderVertexSrc = R"(
-			#version 330 core
-			
-			layout(location = 0) in vec3 a_Position;
-			layout(location = 1) in vec2 a_TexCoord;
-
-			uniform mat4 u_ViewProjection;
-			uniform mat4 u_Transform;
-
-			out vec2 v_TexCoord;
-
-			void main()
-			{
-				v_TexCoord = a_TexCoord;
-				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);	
-			}
-		)";
-
-			std::string TextureShaderFragmentSrc = R"(
-			#version 330 core
-			
-			layout(location = 0) out vec4 color;
-
-			in vec2 v_TexCoord;
-			
-			uniform sampler2D u_Texture;
-
-			void main()
-			{
-				color = texture(u_Texture, v_TexCoord);
-			}
-		)";
-
-			m_TextureShader.reset(Hickory::Shader::Create(TextureShaderVertexSrc, TextureShaderFragmentSrc));
+			auto textureShader = m_ShaderLibrary.Load("Assests/Shaders/Texture.glsl");
 
 			m_Texture = Hickory::Texture2D::Create("Assests/Textures/Checkerboard.png");
 			m_LogoTexture = Hickory::Texture2D::Create("Assests/Textures/Twitch_Logo.png");
 
-			std::dynamic_pointer_cast<Hickory::OpenGLShader>(m_TextureShader)->Bind();
-			std::dynamic_pointer_cast<Hickory::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Color", 0);
+			std::dynamic_pointer_cast<Hickory::OpenGLShader>(textureShader)->Bind();
+			std::dynamic_pointer_cast<Hickory::OpenGLShader>(textureShader)->UploadUniformInt("u_Color", 0);
 		}
 
 		void OnUpdate(Hickory::Timestep DeltaTime) override
@@ -224,11 +189,13 @@ class ExampleLayer : public Hickory::Layer
 			//Rendering Triangle
 			//Hickory::Renderer::Submit(m_Shader, m_VertexArray);
 
+			auto textureShader = m_ShaderLibrary.Get("Texture");
+
 			m_Texture->Bind();
-			Hickory::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+			Hickory::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 			m_LogoTexture->Bind();
-			Hickory::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+			Hickory::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 			Hickory::Renderer::EndScene();
 		}
@@ -246,11 +213,11 @@ class ExampleLayer : public Hickory::Layer
 
 		private:
 
+			Hickory::ShaderLibrary m_ShaderLibrary;
 			Hickory::Ref<Hickory::Shader> m_Shader;
 			Hickory::Ref<Hickory::VertexArray> m_VertexArray;
 
 			Hickory::Ref<Hickory::Shader> m_FlatColorShader;
-			Hickory::Ref<Hickory::Shader> m_TextureShader;
 			Hickory::Ref<Hickory::VertexArray> m_SquareVA;
 			Hickory::Ref<Hickory::Texture2D> m_Texture;
 			Hickory::Ref<Hickory::Texture2D> m_LogoTexture;
