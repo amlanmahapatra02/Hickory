@@ -11,6 +11,7 @@
 #include "Hickory/Input.h"
 #include "Hickory/KeyCodes.h"
 #include "Hickory/MouseButtonCodes.h"
+#include "Hickory/CameraController.h"
 
 #include "Hickory/imgui/ImGuiLayer.h"
 

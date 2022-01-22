@@ -9,6 +9,8 @@ namespace Hickory
 		public:
 			Camera(float left, float right, float bottom, float top);
 
+			void SetProjection(float left, float right, float bottom, float top);
+
 			inline glm::mat4& GetProjectionMatrix() { return m_ProjectionMatrix; }
 			inline glm::mat4& GetViewMatrix() { return m_ViewMatrix; }
 			inline glm::mat4& GetViewProjectionMatrix() { return m_ViewProjectionMatrix; }
