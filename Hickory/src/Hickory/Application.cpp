@@ -47,21 +47,22 @@ namespace Hickory
 		layer->OnAttach();
 	}
 
-	void Application::OnEvent(Event& eve)
+	void Application::OnEvent(Event& e)
 	{
-		EventDispatcher dispatcher(eve);
+		EventDispatcher dispatcher(e);
 
 		//check
 		dispatcher.Dispatch<WindowCloseEvent>(HK_BIND_EVENT_FUNC(Application::OnWindowClose));
+		dispatcher.Dispatch<WindowResizeEvent>(HK_BIND_EVENT_FUNC(Application::OnWindowResize));
 
 		//HK_CORE_TRACE("{0}", eve);
 
 		//move backward on the m_layerStack to see if the event is handled
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
 		{
-			(*--it)->OnEvent(eve);
+			(*--it)->OnEvent(e);
 
-			if (eve.m_Handled)
+			if (e.m_Handled)
 			{
 				break;
 			}
@@ -76,9 +77,12 @@ namespace Hickory
 			Timestep DeltaTime = time - m_LastFrameTime;
 			m_LastFrameTime = time;
 			
-			for (Layer* layer : m_LayerStack)
+			if (!m_Minimized)
 			{
-				layer->OnUpdate(DeltaTime);
+				for (Layer* layer : m_LayerStack)
+				{
+					layer->OnUpdate(DeltaTime);
+				}
 			}
 			
 			m_ImGuiLayer->Begin();
@@ -92,9 +96,23 @@ namespace Hickory
 		}
 	}
 
-	bool Application::OnWindowClose(WindowCloseEvent& eve)
+	bool Application::OnWindowClose(WindowCloseEvent& e)
 	{
 		m_Running = false;
 		return true;
+	}
+
+	bool Application::OnWindowResize(WindowResizeEvent& e)
+	{
+		if (e.GetWidth() == 0 || e.GetHeight() == 0)
+		{
+			m_Minimized = true;
+			return false;
+		}
+
+		m_Minimized = false;
+
+		Renderer::OnWindowResize(e.GetWidth(), e.GetHeight());
+		return false;
 	}
 }

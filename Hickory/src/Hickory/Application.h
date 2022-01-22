@@ -22,13 +22,15 @@ namespace Hickory
 
 			LayerStack m_LayerStack;
 			bool m_Running = true;
+			bool m_Minimized = false;
 			
 			static Application* s_Instances;
 
 			float m_LastFrameTime = 0.0f;
 
 		private:
-			bool OnWindowClose(WindowCloseEvent& eve);
+			bool OnWindowClose(WindowCloseEvent& e);
+			bool OnWindowResize(WindowResizeEvent& e);
 
 
 		public:
