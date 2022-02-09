@@ -2,7 +2,7 @@
 
 #include "hkpch.h"
 
-#include "Hickory/Core.h"
+#include "Hickory/Core/Core.h"
 #include "Hickory/Events/Event.h"
 
 namespace Hickory

@@ -83,17 +83,17 @@ project "Hickory"
 
 	filter "configurations:Debug"
 		defines "HK_DEBUG"
-		runtime "Debug"
+		buildoptions "/MDd"
 		symbols "on"
 
 	filter "configurations:Release"
 		defines "HK_RELEASE"
-		runtime "Release"
+		buildoptions "/MD"
 		optimize "on"
 
 	filter "configurations:Dist"
 		defines "HK_DIST"
-		runtime "Release"
+		buildoptions "/MD"
 		optimize "on"
 
 
@@ -136,15 +136,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "HK_DEBUG"
-		runtime "Debug"
+		buildoptions "/MDd"
 		symbols "on"
 
 	filter "configurations:Release"
 		defines "HK_RELEASE"
-		runtime "Release"
+		buildoptions "/MD"
 		optimize "on"
 
 	filter "configurations:Dist"
 		defines "HK_DIST"
-		runtime "Release"
+		buildoptions "/MD"
 		optimize "on"

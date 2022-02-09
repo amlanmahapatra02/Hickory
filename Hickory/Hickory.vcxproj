@@ -81,6 +81,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -104,6 +105,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -128,6 +130,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -141,23 +144,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Hickory.h" />
-    <ClInclude Include="src\Hickory\Application.h" />
-    <ClInclude Include="src\Hickory\CameraController.h" />
-    <ClInclude Include="src\Hickory\Core.h" />
+    <ClInclude Include="src\Hickory\Core\Application.h" />
+    <ClInclude Include="src\Hickory\Core\Core.h" />
+    <ClInclude Include="src\Hickory\Core\EntryPoint.h" />
+    <ClInclude Include="src\Hickory\Core\Input.h" />
+    <ClInclude Include="src\Hickory\Core\KeyCodes.h" />
+    <ClInclude Include="src\Hickory\Core\Layer.h" />
+    <ClInclude Include="src\Hickory\Core\LayerStack.h" />
+    <ClInclude Include="src\Hickory\Core\Log.h" />
+    <ClInclude Include="src\Hickory\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\Hickory\Core\Timestep.h" />
-    <ClInclude Include="src\Hickory\EntryPoint.h" />
+    <ClInclude Include="src\Hickory\Core\Window.h" />
     <ClInclude Include="src\Hickory\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Hickory\Events\Event.h" />
     <ClInclude Include="src\Hickory\Events\KeyEvent.h" />
     <ClInclude Include="src\Hickory\Events\MouseEvent.h" />
-    <ClInclude Include="src\Hickory\Input.h" />
-    <ClInclude Include="src\Hickory\KeyCodes.h" />
-    <ClInclude Include="src\Hickory\Layer.h" />
-    <ClInclude Include="src\Hickory\LayerStack.h" />
-    <ClInclude Include="src\Hickory\Log.h" />
-    <ClInclude Include="src\Hickory\MouseButtonCodes.h" />
     <ClInclude Include="src\Hickory\Renderer\Buffer.h" />
     <ClInclude Include="src\Hickory\Renderer\Camera.h" />
+    <ClInclude Include="src\Hickory\Renderer\CameraController.h" />
     <ClInclude Include="src\Hickory\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Hickory\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Hickory\Renderer\Renderer.h" />
@@ -165,7 +169,6 @@
     <ClInclude Include="src\Hickory\Renderer\Shader.h" />
     <ClInclude Include="src\Hickory\Renderer\Texture.h" />
     <ClInclude Include="src\Hickory\Renderer\VertexArray.h" />
-    <ClInclude Include="src\Hickory\Window.h" />
     <ClInclude Include="src\Hickory\imgui\ImGuiLayer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
@@ -594,13 +597,13 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Hickory\Application.cpp" />
-    <ClCompile Include="src\Hickory\CameraController.cpp" />
-    <ClCompile Include="src\Hickory\Layer.cpp" />
-    <ClCompile Include="src\Hickory\LayerStack.cpp" />
-    <ClCompile Include="src\Hickory\Log.cpp" />
+    <ClCompile Include="src\Hickory\Core\Application.cpp" />
+    <ClCompile Include="src\Hickory\Core\Layer.cpp" />
+    <ClCompile Include="src\Hickory\Core\LayerStack.cpp" />
+    <ClCompile Include="src\Hickory\Core\Log.cpp" />
     <ClCompile Include="src\Hickory\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Hickory\Renderer\Camera.cpp" />
+    <ClCompile Include="src\Hickory\Renderer\CameraController.cpp" />
     <ClCompile Include="src\Hickory\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Hickory\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Hickory\Renderer\RendererAPI.cpp" />

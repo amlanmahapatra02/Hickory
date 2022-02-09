@@ -10,17 +10,17 @@ namespace Hickory
 	{
 		switch (type)
 		{
-		case Hickory::ShaderDataType::Float:		return GL_FLOAT;
-		case Hickory::ShaderDataType::Float2:		return GL_FLOAT;
-		case Hickory::ShaderDataType::Float3:		return GL_FLOAT;
-		case Hickory::ShaderDataType::Float4:		return GL_FLOAT;
-		case Hickory::ShaderDataType::Mat3:			return GL_FLOAT;
-		case Hickory::ShaderDataType::Mat4:			return GL_FLOAT;
-		case Hickory::ShaderDataType::Int:			return GL_INT;
-		case Hickory::ShaderDataType::Int2:			return GL_INT;
-		case Hickory::ShaderDataType::Int3:			return GL_INT;
-		case Hickory::ShaderDataType::Int4:			return GL_INT;
-		case Hickory::ShaderDataType::Bool:			return GL_BOOL;
+			case Hickory::ShaderDataType::Float:		return GL_FLOAT;
+			case Hickory::ShaderDataType::Float2:		return GL_FLOAT;
+			case Hickory::ShaderDataType::Float3:		return GL_FLOAT;
+			case Hickory::ShaderDataType::Float4:		return GL_FLOAT;
+			case Hickory::ShaderDataType::Mat3:			return GL_FLOAT;
+			case Hickory::ShaderDataType::Mat4:			return GL_FLOAT;
+			case Hickory::ShaderDataType::Int:			return GL_INT;
+			case Hickory::ShaderDataType::Int2:			return GL_INT;
+			case Hickory::ShaderDataType::Int3:			return GL_INT;
+			case Hickory::ShaderDataType::Int4:			return GL_INT;
+			case Hickory::ShaderDataType::Bool:			return GL_BOOL;
 		}
 	};
 

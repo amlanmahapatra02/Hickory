@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Hickory/Core.h"
-#include "Hickory/Layer.h"
+#include "Hickory/Core/Core.h"
+#include "Hickory/Core/Layer.h"
 #include "Hickory/Events/ApplicationEvent.h"
 #include "Hickory/Events/KeyEvent.h"
 #include "Hickory/Events/MouseEvent.h"

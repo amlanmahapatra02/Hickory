@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Hickory/Core.h"
+#include "Hickory/Core/Core.h"
 #include "Hickory/Events/ApplicationEvent.h"
 #include "Hickory/Core/Timestep.h"
 

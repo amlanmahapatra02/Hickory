@@ -1,7 +1,7 @@
 #include "hkpch.h"
 #include "WindowsInput.h"
 
-#include "Hickory/Application.h"
+#include "Hickory/Core/Application.h"
 #include <GLFW/glfw3.h>
 
 namespace Hickory

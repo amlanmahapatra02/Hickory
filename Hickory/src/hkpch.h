@@ -13,7 +13,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "Hickory/Log.h"
+#include "Hickory/Core/Log.h"
 
 
 #ifdef HK_PLATFORM_WINDOWS

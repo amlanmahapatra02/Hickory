@@ -2,7 +2,7 @@
 
 #include "Application.h"
 #include "Hickory/Events/ApplicationEvent.h"
-#include "imgui/imGuiLayer.h"
+#include "Hickory/imgui/imGuiLayer.h"
 #include "Input.h"
 
 #include <GLFW/glfw3.h>

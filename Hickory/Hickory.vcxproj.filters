@@ -57,17 +57,38 @@
     <ClInclude Include="src\Hickory.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Hickory\Application.h">
-      <Filter>src\Hickory</Filter>
+    <ClInclude Include="src\Hickory\Core\Application.h">
+      <Filter>src\Hickory\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Hickory\Core.h">
-      <Filter>src\Hickory</Filter>
+    <ClInclude Include="src\Hickory\Core\Core.h">
+      <Filter>src\Hickory\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hickory\Core\EntryPoint.h">
+      <Filter>src\Hickory\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hickory\Core\Input.h">
+      <Filter>src\Hickory\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hickory\Core\KeyCodes.h">
+      <Filter>src\Hickory\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hickory\Core\Layer.h">
+      <Filter>src\Hickory\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hickory\Core\LayerStack.h">
+      <Filter>src\Hickory\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hickory\Core\Log.h">
+      <Filter>src\Hickory\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hickory\Core\MouseButtonCodes.h">
+      <Filter>src\Hickory\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Hickory\Core\Timestep.h">
       <Filter>src\Hickory\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Hickory\EntryPoint.h">
-      <Filter>src\Hickory</Filter>
+    <ClInclude Include="src\Hickory\Core\Window.h">
+      <Filter>src\Hickory\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Hickory\Events\ApplicationEvent.h">
       <Filter>src\Hickory\Events</Filter>
@@ -81,28 +102,13 @@
     <ClInclude Include="src\Hickory\Events\MouseEvent.h">
       <Filter>src\Hickory\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Hickory\Input.h">
-      <Filter>src\Hickory</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Hickory\KeyCodes.h">
-      <Filter>src\Hickory</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Hickory\Layer.h">
-      <Filter>src\Hickory</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Hickory\LayerStack.h">
-      <Filter>src\Hickory</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Hickory\Log.h">
-      <Filter>src\Hickory</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Hickory\MouseButtonCodes.h">
-      <Filter>src\Hickory</Filter>
-    </ClInclude>
     <ClInclude Include="src\Hickory\Renderer\Buffer.h">
       <Filter>src\Hickory\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Hickory\Renderer\Camera.h">
+      <Filter>src\Hickory\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hickory\Renderer\CameraController.h">
       <Filter>src\Hickory\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Hickory\Renderer\GraphicsContext.h">
@@ -125,9 +131,6 @@
     </ClInclude>
     <ClInclude Include="src\Hickory\Renderer\VertexArray.h">
       <Filter>src\Hickory\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Hickory\Window.h">
-      <Filter>src\Hickory</Filter>
     </ClInclude>
     <ClInclude Include="src\Hickory\imgui\ImGuiLayer.h">
       <Filter>src\Hickory\imgui</Filter>
@@ -1407,25 +1410,27 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Hickory\CameraController.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Hickory\Application.cpp">
-      <Filter>src\Hickory</Filter>
+    <ClCompile Include="src\Hickory\Core\Application.cpp">
+      <Filter>src\Hickory\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Hickory\Layer.cpp">
-      <Filter>src\Hickory</Filter>
+    <ClCompile Include="src\Hickory\Core\Layer.cpp">
+      <Filter>src\Hickory\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Hickory\LayerStack.cpp">
-      <Filter>src\Hickory</Filter>
+    <ClCompile Include="src\Hickory\Core\LayerStack.cpp">
+      <Filter>src\Hickory\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\Hickory\Log.cpp">
-      <Filter>src\Hickory</Filter>
+    <ClCompile Include="src\Hickory\Core\Log.cpp">
+      <Filter>src\Hickory\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Hickory\Renderer\Buffer.cpp">
       <Filter>src\Hickory\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Hickory\Renderer\Camera.cpp">
+      <Filter>src\Hickory\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hickory\Renderer\CameraController.cpp">
       <Filter>src\Hickory\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Hickory\Renderer\RenderCommand.cpp">
@@ -1482,6 +1487,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Hickory\CameraController.cpp" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Hickory/Core.h"
+#include "Hickory/Core/Core.h"
 
 namespace Hickory
 {

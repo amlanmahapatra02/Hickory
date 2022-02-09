@@ -1,8 +1,8 @@
 #include "hkpch.h"
 #include "CameraController.h"
 
-#include "Hickory/KeyCodes.h"
-#include "Hickory/Input.h"
+#include "Hickory/Core/KeyCodes.h"
+#include "Hickory/Core/Input.h"
 
 namespace Hickory
 {

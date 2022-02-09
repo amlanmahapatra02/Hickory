@@ -1,6 +1,6 @@
 #pragma  once
 
-#include "Hickory/Window.h"
+#include "Hickory/Core/Window.h"
 #include "Hickory/Renderer/GraphicsContext.h"
 #include <GLFW/glfw3.h>
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Hickory/Core.h"
+#include "Hickory/Core/Core.h"
 #include "Layer.h"
 #include <vector>
 
