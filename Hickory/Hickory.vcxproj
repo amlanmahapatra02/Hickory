@@ -143,6 +143,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Hickory\Renderer\Renderer2D.h" />
     <ClInclude Include="src\Hickory.h" />
     <ClInclude Include="src\Hickory\Core\Application.h" />
     <ClInclude Include="src\Hickory\Core\Core.h" />
@@ -597,6 +598,7 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Hickory\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\Hickory\Core\Application.cpp" />
     <ClCompile Include="src\Hickory\Core\Layer.cpp" />
     <ClCompile Include="src\Hickory\Core\LayerStack.cpp" />

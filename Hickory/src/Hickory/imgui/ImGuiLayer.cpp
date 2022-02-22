@@ -91,11 +91,7 @@ namespace Hickory
 
 	void ImGuiLayer::OnImGuiRender()
 	{
+
 	}
-	
-
-	
-
-	
 
 }
